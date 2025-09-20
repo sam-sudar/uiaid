@@ -1,0 +1,293 @@
+project-root/ │ ├── public/ │ ├── favicon.ico │ ├── logo.svg # Company/brand
+logo │ ├── index.html │ └── assets/ # Static images, SVGs, backgrounds │ ├──
+src/ │ ├── api/ │ │ ├── seatInfoApi.js # fetchSeatInfo() function │ │ └──
+mainViaApi.js # fetchMainVia() function │ │ │ ├── components/ # Reusable UI
+elements │ │ ├── Navbar.jsx │ │ ├── Button.jsx │ │ ├── Card.jsx │ │ ├──
+DataTable.jsx # custom or react-table setup │ │ └── Chart.jsx # Highcharts
+wrapper │ │ │ ├── sections/ # Page sections matching Figma layout │ │ ├──
+Hero.jsx │ │ ├── PopularTools.jsx │ │ ├── HowItWorks.jsx │ │ ├──
+BookingTable.jsx # wraps DataTable + API │ │ └── BookingChart.jsx # wraps Chart
++ API │ │ │ ├── layouts/ │ │ └── MainLayout.jsx # navbar + footer wrapper │ │ │
+├── styles/ │ │ └── globals.css # Tailwind base + overrides │ │ │ ├── utils/ │ │
+└── formatters.js # date formatting, price formatting etc. │ │ │ ├── App.jsx #
+main routing + layout │ ├── index.jsx # React entry │ └── tailwind.config.js │
+├── package.json ├── README.md └── vite.config.js # or CRA config //Hero: backup
+code import React from "react"; // Mock components since we don't have access to
+your actual components
+<!-- const Navbar = () => (
+  <nav className="flex items-center justify-between px-8 py-6">
+    <div className="flex items-center space-x-2">
+      <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
+        <span className="text-white font-bold text-sm">ui</span>
+      </div>
+      <span className="text-xl font-semibold text-gray-900">uiAid</span>
+    </div>
+    <div className="hidden md:flex items-center space-x-8">
+      <a href="#" className="text-gray-600 hover:text-gray-900">
+        About
+      </a>
+      <a href="#" className="text-gray-600 hover:text-gray-900">
+        Work
+      </a>
+      <a href="#" className="text-gray-600 hover:text-gray-900">
+        Research
+      </a>
+    </div>
+    <button className="border border-purple-300 text-purple-600 px-6 py-2 rounded-full hover:bg-purple-50 transition-colors">
+      Login
+    </button>
+  </nav>
+);
+
+// Mock dashboard preview component since we don't have the actual image
+const DashboardPreview = () => (
+  <div className="bg-gray-900 rounded-2xl p-6 text-white relative overflow-hidden">
+    <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center space-x-2">
+        <div className="w-6 h-6 bg-gradient-to-br from-purple-500 to-blue-500 rounded"></div>
+        <span className="font-semibold">uiAid</span>
+      </div>
+      <span className="text-2xl">Generate Articles With AI</span>
+      <div className="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
+        <span className="text-black font-bold">⚡</span>
+      </div>
+    </div>
+
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      {/* Left sidebar */}
+      <div className="space-y-4">
+        <div className="bg-purple-600 text-white px-4 py-2 rounded text-sm">
+          + New Project
+        </div>
+        <div className="space-y-2">
+          <div className="flex items-center space-x-2 text-gray-300">
+            <span>📁</span>
+            <span>Projects</span>
+          </div>
+          <div className="flex items-center space-x-2 text-gray-300">
+            <span>📄</span>
+            <span>Templates</span>
+          </div>
+          <div className="flex items-center space-x-2 text-gray-300">
+            <span>🔧</span>
+            <span>Tools</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Center content */}
+      <div className="space-y-4">
+        <div>
+          <label className="block text-sm text-gray-300 mb-2">Language</label>
+          <select className="w-full bg-gray-800 border border-gray-700 rounded px-3 py-2">
+            <option>🇺🇸 English (US)</option>
+          </select>
+        </div>
+
+        <div>
+          <label className="block text-sm text-gray-300 mb-2">
+            Article Title
+          </label>
+          <input
+            type="text"
+            placeholder="e.g. the 20 best places to live in the UK"
+            className="w-full bg-gray-800 border border-gray-700 rounded px-3 py-2 text-white placeholder-gray-500"
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm text-gray-300 mb-2">
+            Focus keyword (optional, with 30 keywords)
+          </label>
+          <input
+            type="text"
+            className="w-full bg-gray-800 border border-gray-700 rounded px-3 py-2"
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm text-gray-300 mb-2">
+            Article Subheadings
+          </label>
+          <select className="w-full bg-gray-800 border border-gray-700 rounded px-3 py-2">
+            <option>Subheading</option>
+          </select>
+        </div>
+
+        <button className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-lg font-semibold">
+          Generate
+        </button>
+      </div>
+
+      {/* Right preview */}
+      <div className="bg-gray-800 rounded-lg p-4 space-y-4">
+        <h3 className="font-semibold text-lg">
+          Effortlessly Create High-Quality Articles with Our AI Article
+          Generator
+        </h3>
+        <div className="space-y-2 text-sm text-gray-300">
+          <p>
+            AI has the potential to revolutionize the way we live and work, from
+            improving healthcare and transportation to enhancing the way...
+          </p>
+          <p>
+            These are some significant advantages of electronic payment options
+            and methods. Payment with your attention to game forms is a
+            financial remark or...
+          </p>
+          <p>
+            AI has the potential to revolutionize the way we live and work, from
+            improving healthcare and transportation to enhancing the way...
+          </p>
+        </div>
+        <div className="text-xs text-gray-500 mt-4">Nov 19, 2025</div>
+
+        <div className="flex items-center justify-between mt-6 pt-4 border-t border-gray-700">
+          <button className="flex items-center space-x-1 text-blue-400 text-sm">
+            <span>📝</span>
+            <span>Edit text</span>
+          </button>
+          <button className="flex items-center space-x-1 text-gray-400 text-sm">
+            <span>📋</span>
+            <span>Copy Text</span>
+          </button>
+          <button className="flex items-center space-x-1 text-green-400 text-sm">
+            <span>💾</span>
+            <span>Save</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+export default function Hero() {
+  return (
+    <div className="relative min-h-screen overflow-hidden">
+      {/* Background gradient that ends partway down */}
+      <div
+        className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50"
+        style={{ height: "75vh" }}
+      />
+
+      {/* Header */}
+      <div className="relative z-10">
+        <Navbar />
+      </div>
+
+      {/* Main Content */}
+      <main className="relative z-10 px-4 sm:px-8 py-8 sm:py-12">
+        {/* Hero Section */}
+        <div className="text-center mb-12 max-w-5xl mx-auto">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+            Effortlessly Create High-
+            <br />
+            Quality Articles with Our AI
+            <br />
+            Article Generator
+          </h1>
+          <p className="text-gray-600 text-base sm:text-lg md:text-xl mb-8 max-w-3xl mx-auto leading-relaxed px-4">
+            AI has the potential to revolutionize the way we live and work, from
+            improving healthcare and transportation to enhancing the way we
+            create content and communicate.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+            <button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-full hover:from-purple-700 hover:to-blue-700 font-semibold text-lg shadow-lg transition-all duration-300 transform hover:scale-105 w-full sm:w-auto">
+              Get Started
+            </button>
+            <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full hover:bg-gray-50 hover:border-gray-400 font-semibold text-lg transition-all duration-300 w-full sm:w-auto">
+              Explore
+            </button>
+          </div>
+        </div>
+
+        {/* Dashboard Preview Container */}
+        <div className="max-w-6xl mx-auto relative">
+          {/* Left decorative circle - positioned as in the design */}
+          <div
+            className="absolute -top-20 -left-20 w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 rounded-full -z-10"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(139, 69, 215, 0.8) 0%, rgba(139, 69, 215, 0.4) 70%, transparent 100%)",
+            }}
+          />
+
+          {/* Right decorative shape - partial circle as in design */}
+          <div className="absolute bottom-20 -right-24 w-28 h-28 sm:w-32 sm:h-32 lg:w-36 lg:h-36 -z-10 overflow-hidden">
+            <div
+              className="w-full h-full rounded-full"
+              style={{
+                background:
+                  "radial-gradient(circle, rgba(139, 69, 215, 0.8) 0%, rgba(139, 69, 215, 0.4) 70%, transparent 100%)",
+                clipPath: "polygon(0 0, 50% 0, 50% 100%, 0 100%)",
+              }}
+            />
+          </div>
+
+          {/* Dashboard container with shadow and styling */}
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-3 sm:p-6 shadow-2xl border border-gray-100 relative z-10">
+            <DashboardPreview />
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+}
+
+
+
+
+
+ -->
+
+{/* Section 3: Review, Export and Publish Section */}
+<div className="grid grid-cols-1 xl:grid-cols-2 gap-8 lg:gap-12 items-start">
+  {/* Left Content */}
+  <div className="space-y-6 lg:space-y-8">
+    <div>
+      <h3
+        className="text-xl lg:text-2xl font-semibold text-gray-900 mb-3 lg:mb-4"
+      ></h3>
+      <p className="text-gray-600 leading-relaxed text-sm lg:text-base"></p>
+    </div>
+
+    {/* Feature List */}
+    <FeatureList items="{features}" />
+  </div>
+
+  {/* Right Side - Mock Interface */}
+  <div
+    className="bg-white rounded-xl p-4 lg:p-6 shadow-sm border border-gray-200"
+  >
+    <div className="flex items-center space-x-2 mb-4">
+      <div className="flex space-x-1">
+        <div className="w-2 h-2 lg:w-3 lg:h-3 rounded-full bg-red-400"></div>
+        <div className="w-2 h-2 lg:w-3 lg:h-3 rounded-full bg-yellow-400"></div>
+        <div className="w-2 h-2 lg:w-3 lg:h-3 rounded-full bg-green-400"></div>
+      </div>
+    </div>
+
+    <div className="space-y-3 mb-6">
+      <div className="h-3 bg-gray-200 rounded w-full"></div>
+      <div className="h-3 bg-gray-200 rounded w-4/5"></div>
+      <div className="h-3 bg-gray-200 rounded w-full"></div>
+      <div className="h-3 bg-gray-200 rounded w-3/4"></div>
+      <div className="h-3 bg-gray-200 rounded w-full"></div>
+      <div className="h-3 bg-gray-200 rounded w-2/3"></div>
+    </div>
+
+    <div className="flex space-x-2">
+      <button
+        className="px-4 py-2 bg-purple-600 text-white text-sm rounded-lg hover:bg-purple-700 transition-colors"
+      >
+        Export
+      </button>
+      <button
+        className="px-4 py-2 bg-gray-100 text-gray-700 text-sm rounded-lg hover:bg-gray-200 transition-colors"
+      >
+        Preview
+      </button>
+    </div>
+  </div>
+</div>
