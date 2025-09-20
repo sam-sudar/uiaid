@@ -2,7 +2,7 @@
 export default function Card({ icon: Icon, title, description, color }) {
   return (
     <div
-      className="group relative rounded-xl bg-white  p-6 
+      className="group relative rounded-xl bg-white cursor-pointer p-6 
                  transition-all duration-300 hover:scale-[1.02] hover:border-pink-500/50 
                  hover:shadow-[0_0_30px_-5px_rgba(236,72,153,0.5)]"
     >

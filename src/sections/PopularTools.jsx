@@ -91,7 +91,7 @@ export default function PopularTools() {
       <div className="py-20 px-20 bg-gradient-to-br from-pink-100 via-green-100 to-emerald-200">
         {/* header  */}
         <header className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-5xl font-base text-gray-900 mb-4">
             Most Popular Tools
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">

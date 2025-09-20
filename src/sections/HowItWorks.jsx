@@ -6,6 +6,14 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import Circle from "../assets/Purple_Circle_2.png";
+import {
+  BoldIcon,
+  ItalicIcon,
+  UnderlineIcon,
+  ListBulletIcon,
+  LinkIcon,
+  ChevronDownIcon,
+} from "@heroicons/react/24/outline";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -32,7 +40,7 @@ export default function HowItWorks() {
       {
         x: 0,
         autoAlpha: 1,
-        duration: 2,
+        duration: 1,
         ease: "elastic.inOut(1, 0.75)",
         scrollTrigger: {
           trigger: boxRef.current,
@@ -47,7 +55,7 @@ export default function HowItWorks() {
       {
         x: 0,
         autoAlpha: 1,
-        duration: 2,
+        duration: 1,
         ease: "elastic.inOut(1, 0.75)",
         scrollTrigger: {
           trigger: boxRef2.current,
@@ -65,7 +73,7 @@ export default function HowItWorks() {
     >
       <div className="max-w-7xl mx-auto px-4 py-8 lg:py-12">
         <header className="my-10">
-          <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-center text-gray-900 mb-8 lg:mb-16">
+          <h1 className="text-3xl lg:text-5xl  font-base text-center text-gray-900 mb-8 lg:mb-16">
             How it works
           </h1>
         </header>
@@ -80,7 +88,7 @@ export default function HowItWorks() {
               description="Simply provide our AI writer with 1-2 sentences on what to write, and it'll understand and start writing for you."
               items={features1}
             />
-            {/* not sure - box  */}
+            {/* editor box  */}
             <div className="bg-gradient-to-br from-pink-100 via-sky-100 to-blue-300 p-2 rounded-lg md:p-5">
               <div className="bg-white rounded-xl p-4 lg:p-6 shadow-sm border border-gray-200">
                 <div className="flex items-center space-x-2 mb-4">
@@ -91,16 +99,16 @@ export default function HowItWorks() {
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-2 mb-4 text-xs lg:text-sm">
-                  <span className="text-gray-400">U</span>
-                  <span className="text-gray-400">I</span>
-                  <span className="text-gray-400">A</span>
-                  <span className="text-gray-400">I</span>
-                  <span className="text-gray-400">D</span>
+                <div className="flex items-center space-x-3 mb-4 text-gray-400">
+                  <BoldIcon className="w-4 h-4" />
+                  <ItalicIcon className="w-4 h-4" />
+                  <UnderlineIcon className="w-4 h-4" />
+                  <ListBulletIcon className="w-4 h-4" />
+                  <LinkIcon className="w-4 h-4" />
                   <div className="flex-1"></div>
                   <div className="flex items-center space-x-1 text-xs text-gray-400">
                     <span>En</span>
-                    <span>▼</span>
+                    <ChevronDownIcon className="w-3 h-3" />
                   </div>
                 </div>
 

@@ -6,6 +6,8 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import HeroBox from "../components/HeroBox";
 import Circle from "../assets/Purple_Circle_2.png";
 
+import SectionImage from "../assets/section1.png";
+
 export default function Hero() {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
   const boxRef = useRef(null);
@@ -32,8 +34,8 @@ export default function Hero() {
     <div className="relative min-h-screen overflow-hidden">
       {/* // main body */}
       <main className="px-4 sm:px-8 py-8 sm:py-12">
-        <div className="text-center mb-8 md:mb-90 max-w-5xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+        <div className="text-center mb-8 md:mb-90 max-w-5xl  mt-8 mx-auto">
+          <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-semibold text-gray-900 mb-6 leading-tight">
             Effortlessly Create High-
             <br />
             Quality Articles with Our AI
@@ -47,10 +49,10 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 sm:mb-12">
-            <button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-full hover:from-purple-700 hover:to-blue-700 font-semibold text-lg shadow-lg transition-all duration-300 transform hover:scale-105 w-full sm:w-auto">
+            <button className="bg-[#8b5cf6] cursor-pointer text-white px-8 py-4 rounded-full hover:from-purple-700 hover:to-blue-700 font-semibold text-lg shadow-lg transition-all duration-300 transform hover:scale-105 w-full sm:w-auto">
               Get Started
             </button>
-            <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full hover:bg-gray-50 hover:border-gray-400 font-semibold text-lg transition-all duration-300 w-full sm:w-auto">
+            <button className="border-2 border-[#8b5cf6]/50 cursor-pointer text-gray-700 px-8 py-4 rounded-full hover:bg-gray-50 hover:border-gray-400 font-semibold text-lg transition-all duration-300 w-full sm:w-auto">
               Explore
             </button>
           </div>
@@ -59,25 +61,29 @@ export default function Hero() {
         <div className="block sm:hidden">
           <div
             ref={boxRef}
-            className="bg-white rounded-xl p-2 shadow-lg border border-gray-100 max-w-sm mx-auto"
+            className="bg-white rounded-xl md:w-full p-2 shadow-lg border border-gray-100 max-w-sm mx-auto"
           >
             <HeroBox />
           </div>
         </div>
       </main>
+      {/* // Image div - need to fix */}
+      <div className="hidden md:block lg:hidden mx-10 flex justify-center">
+        <img src={SectionImage} className="w-[1000px] h-[500px]" />
+      </div>
       {/* circles  */}
       <img
         src={Circle}
-        className="hidden sm:block absolute bottom-135 left-20"
+        className="hidden lg:block absolute bottom-135 left-20"
         alt="Decorative circle"
       />
       <img
         src={Circle}
-        className="hidden sm:block absolute bottom-55 right-20 z-0 w-64 h-64"
+        className="hidden lg:block absolute bottom-55 right-20 z-0 w-64 h-64"
         alt="Decorative circle"
       />
       {/* // white second div  */}
-      <div className="hidden sm:block">
+      <div className="hidden lg:block">
         <div className="relative z-20 bg-white w-full h-[300px]"></div>
         <div
           ref={boxRef}
