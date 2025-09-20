@@ -20,7 +20,7 @@ export default function Table() {
         const res = await getSeatInfo();
         setSeats(res.data);
       } catch (err) {
-        setError(err.message || "Failed to fetch seat information");
+        setError(err.message || "Failed to fetch seat data");
         console.error(err);
       } finally {
         setLoading(false);
@@ -30,7 +30,6 @@ export default function Table() {
     fetchSeats();
   }, []);
 
-  // Define table columns
   const columns = useMemo(
     () => [
       {

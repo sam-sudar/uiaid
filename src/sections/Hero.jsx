@@ -34,7 +34,7 @@ export default function Hero() {
     <div className="relative min-h-screen overflow-hidden">
       {/* // main body */}
       <main className="px-4 sm:px-8 py-8 sm:py-12">
-        <div className="text-center mb-8 md:mb-90 max-w-5xl  mt-8 mx-auto">
+        <div className="text-center mb-8 lg:mb-90 max-w-5xl  mt-8 mx-auto">
           <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-semibold text-gray-900 mb-6 leading-tight">
             Effortlessly Create High-
             <br />
@@ -58,19 +58,19 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="block sm:hidden">
+        <div className="block lg:hidden">
           <div
             ref={boxRef}
-            className="bg-white rounded-xl md:w-full p-2 shadow-lg border border-gray-100 max-w-sm mx-auto"
+            className="bg-white rounded-xl sm:max-w-full md:w-full p-2 shadow-lg border border-gray-100 max-w-sm mx-auto"
           >
             <HeroBox />
           </div>
         </div>
       </main>
-      {/* // Image div */}
+      {/* // Image div
       <div className="hidden md:block lg:hidden mx-10 flex justify-center">
         <img src={SectionImage} className="w-[1000px] h-[500px]" />
-      </div>
+      </div> */}
       {/* circles  */}
       <img
         src={Circle}

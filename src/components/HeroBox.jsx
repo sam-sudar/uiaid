@@ -12,15 +12,15 @@ function HeroBox() {
     <>
       <div className="bg-gray-900 rounded-2xl overflow-hidden text-white flex flex-col md:flex-row">
         {/* // Sidebar  */}
-        <div className="w-full md:w-[18%] bg-gray-800 p-4 md:p-6">
+        <div className="w-full md:w-[20%] bg-gray-800 p-4 md:p-6">
           <div className="flex md:flex-col items-center md:items-start gap-4 md:gap-6">
             <div className="flex items-center space-x-2">
               <img src={Logo} className="w-5 h-5" />
               <span className="font-semibold">uiAid</span>
             </div>
-            <div className="bg-purple-600 flex gap-2 text-white px-3 py-1 md:px-4 md:py-2 rounded-lg cursor-pointer text-xs md:text-sm whitespace-nowrap">
-              <PlusCircleIcon className="w-4 mt-1 h-4" />
-              New Project
+            <div className="bg-purple-600 sm:w-full flex gap-2 text-white p-2 sm:px-3 lg:px-4 lg:py-2 rounded-lg cursor-pointer text-xs sm:text-sm whitespace-nowrap">
+              <PlusCircleIcon className="lg:block hidden w-4 mt-1 h-4" />
+              <p className="text-sm">New Project</p>
             </div>
 
             <div className="hidden md:block space-y-2">
