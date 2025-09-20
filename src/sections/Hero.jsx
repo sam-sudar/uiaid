@@ -67,7 +67,7 @@ export default function Hero() {
           </div>
         </div>
       </main>
-      {/* // Image div - need to fix */}
+      {/* // Image div */}
       <div className="hidden md:block lg:hidden mx-10 flex justify-center">
         <img src={SectionImage} className="w-[1000px] h-[500px]" />
       </div>
