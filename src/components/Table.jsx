@@ -65,6 +65,7 @@ export default function Table() {
       },
     },
   });
+  console.log(table);
 
   if (loading) {
     return <div className="p-4">Loading...</div>;
@@ -115,7 +116,7 @@ export default function Table() {
         </tbody>
       </table>
 
-      {/* Simple Pagination */}
+      {/*  Pagination */}
       <div className="mt-4 flex items-center justify-between">
         <span className="text-sm text-gray-600">
           Page {table.getState().pagination.pageIndex + 1} of{" "}

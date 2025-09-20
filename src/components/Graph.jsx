@@ -7,10 +7,6 @@ export default function Graph() {
   const [chartData, setChartData] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    fetchChartData();
-  }, []);
-
   const fetchChartData = async () => {
     setLoading(true);
     try {
@@ -35,6 +31,9 @@ export default function Graph() {
     }
     setLoading(false);
   };
+  useEffect(() => {
+    fetchChartData();
+  }, []);
 
   const chartOptions = {
     chart: {
