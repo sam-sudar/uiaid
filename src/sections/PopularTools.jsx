@@ -87,7 +87,7 @@ export default function PopularTools() {
     );
   }, []);
   return (
-    <section id="tools" className="section-padding" ref={boxRef}>
+    <section id="tools" className="" ref={boxRef}>
       <div className="py-20 px-20 bg-gradient-to-br from-pink-100 via-green-100 to-emerald-200">
         {/* header  */}
         <header className="text-center mb-16">

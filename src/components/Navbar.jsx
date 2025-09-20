@@ -9,13 +9,13 @@ function Navbar() {
       </div>
 
       <nav className="hidden md:flex items-center space-x-8">
-        <a href="#" className="text-gray-600 hover:text-gray-800">
+        <a href="#tools" className="text-gray-600 hover:text-gray-800">
           About
         </a>
         <a href="#work" className="text-gray-600 hover:text-gray-800">
           Work
         </a>
-        <a href="#" className="text-gray-600 hover:text-gray-800">
+        <a href="#work" className="text-gray-600 hover:text-gray-800">
           Research
         </a>
       </nav>
